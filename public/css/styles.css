@@ -4,3 +4,191 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Estilo base (view celular) */
+html {
+  background-image: none;
+}
+
+body {
+  max-width: 980px;
+  font-size: 16px;
+  margin: 0 auto;
+  background-color: white;
+  font-family: "Roboto", sans-serif, normal;
+}
+
+/*HEADER*/
+header {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+header a {
+  display: inline;
+  text-decoration: none;
+  padding-left: 10px;
+  color: black;
+}
+.tools {
+  padding-top: 10px;
+}
+.siteName {
+  font-size: 200%;
+}
+
+/*NAV*/
+nav {
+  background-color: black;
+  color: white;
+  display: flex;
+}
+nav li {
+  display: inline;
+  padding: 0.5rem;
+}
+
+.main-home {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 4em;
+  background-color: #ffffff;
+}
+
+/*FIRST SECTION*/
+
+h1 {
+  font-size: 130%;
+}
+.text-car {
+  text-align: left;
+  padding: 10px;
+  position: relative;
+}
+
+.text-car p {
+  color:  #083f4f;
+  line-height: 0;
+}
+
+.text-car h3 {
+  color:  #083f4f;
+  font-weight: bold;
+  line-height: 0;
+}
+
+.car {
+  width: 100%;
+}
+
+.box {
+  background-color: rgba(227, 226, 216, 0.5);
+  width: 35%;
+  position: absolute;
+  top: 40%;
+}
+
+.button {
+  width: 60%;
+  height: 15%;
+}
+
+/*DMC DELOREAN REVIEWS*/
+.content2 {
+  margin: 0.5em;
+}
+
+.content2 li {
+  line-height: 2em;
+}
+
+.content1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin: 0.5em;
+}
+
+.main-home h2 {
+  padding-left: 5%;
+}
+
+/*DELOREAN UPGRADES*/
+.upgrades img {
+  margin: auto;
+}
+
+.upgrades {
+  background-color: #62c3e1;
+  border: solid 1.5px;
+  padding: 1em;
+  grid-template-rows: 5em;
+  display: grid;
+}
+
+.upgradelink {
+  text-align: center;
+}
+
+/*Medios para dispositivos más grandes (escritorio) ancho de pantalla mayor o igual a 768 píxeles.*/
+@media screen and (min-width: 768px) {
+
+  html {
+    background-image: url("../images/site/checkerboard.jpg");
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+  
+  body {
+    padding: 20px;
+    border: solid 4px #62c3e1;
+  border-radius: 10px !important;
+  }
+
+  nav li {
+    padding: 4rem;
+  }
+
+  h1 {
+    font-size: 230%;
+  }
+
+  .box {
+    height: 45%;
+    width: 20%;
+    left: 5%;
+    bottom: 5%;
+  }
+
+  .car {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+
+  .button {
+    width: 75%;
+    height: 20%;
+    bottom: 5%;
+    display: block;
+    margin: auto;
+  }
+
+  .text-car h3 {
+    font-size: 150%;
+  }
+
+  .text-car p {
+    font-size: 130%;
+    line-height: 0.5;
+  }
+
+  .containterwrapping {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .content2 {
+    order: 2;
+  }
+}
