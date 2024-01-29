@@ -73,7 +73,7 @@ h1 {
 }
 
 .text-car h3 {
-  color:  #083f4f;
+  color:#083f4f;
   font-weight: bold;
   line-height: 0;
 }
@@ -184,7 +184,7 @@ h1 {
     line-height: 0.5;
   }
 
-  .containterwrapping {
+  .containerwrapping {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
