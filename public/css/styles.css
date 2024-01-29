@@ -1,9 +1,11 @@
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
+
 
 /* Estilo base (view celular) */
 html {
@@ -74,7 +76,7 @@ h1 {
 
 .text-car h3 {
   color:#083f4f;
-  font-weight: bold;
+  
   line-height: 0;
 }
 
