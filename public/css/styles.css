@@ -49,6 +49,16 @@ nav {
 nav li {
   display: inline;
   padding: 3%;
+
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .main-home {
@@ -191,7 +201,7 @@ img {
 .namePrice span {
   font-size: 1.1em;
   font-weight: bold;
-  color: #007bff;
+
 }
 
 .notice {
