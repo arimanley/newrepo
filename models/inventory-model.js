@@ -23,7 +23,20 @@ async function getInventoryByClassificationId(classification_id) {
   } catch (error) {
     console.error("getclassificationsbyid error " + error)
   }
-}
+};
 
+//Retrieves the data for a specific vehicle in inventory    //WEEK 7
+async function getInventoryByInvId(inv_id) { 
+  try{
+    const data=await pool.query(
+      'SELECT * FROM public.inventory WHERE inv_id = $1',
+      [inv_id]);
 
-module.exports = {getClassifications, getInventoryByClassificationId};
+      return data.rows}
+      catch (error) {
+        console.error("Error fetching vehicle data" + error)
+      }
+ 
+    }; 
+
+module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByInvId};

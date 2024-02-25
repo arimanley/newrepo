@@ -58,7 +58,41 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+ * Build HTML for a single vehicle view 
+ * ************************************  */
+Util.buildVehicleDetailsHTML = async function(data){
+  try{
+    if(data){
+      let grid= `<div class="grid-container">
+      <div class="left-side">
+      <h2> ${data[0].inv_year} ${data[0].inv_make} ${data[0].inv_model} </h2>
+      <img src="${data[0].inv_image}" alt="${data[0].inv_make} ${data[0].inv_model}">  
+      </div>
+      <div class="right-side">
+      <h3>  ${data[0].inv_make} ${data[0].inv_model} Details </h3>
+      <p>Price: $${new Intl.NumberFormat('en-US').format(data[0].inv_price)}</p>
+      <p> Description: ${data[0].inv_description} </p>
+      <p> Mileage:${new Intl.NumberFormat('en-US').format(data[0].inv_miles)} </p>
+      <p> Color: ${data[0].inv_color} </p>
+      </div>
+      </div>`;
+      return grid;}
+      else{
+        return `<p> Sorry </p>`;
+      }
+    } catch (error){
+      console.error("error", error);
+      return `<p> Sorry </p>`;
+    }
+  };
 
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 
 module.exports = Util

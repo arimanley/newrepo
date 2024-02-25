@@ -48,7 +48,7 @@ nav {
 }
 nav li {
   display: inline;
-  padding: 0.5rem;
+  padding: 3%;
 }
 
 .main-home {
@@ -133,6 +133,86 @@ h1 {
   text-align: center;
 }
 
+/*INVENTORY CSS*/
+.left-side {
+  padding-left: 0; /* Elimina el espaciado izquierdo en dispositivos móviles */
+  margin-top: 5px; /* Ajusta el margen superior según tu preferencia */
+  padding: 10px;
+}
+.right-side {
+  padding-left: 0; /* Elimina el espaciado izquierdo en dispositivos móviles */
+  /* Ajusta el margen superior según tu preferencia */
+  padding: 10px;
+}
+
+img {
+ /* width: 45%;  La imagen ocupará el ancho completo del contenedor */
+ /*  height: auto; Se ajustará automáticamente según el ancho */
+
+}
+
+/*CLASSIFICATION GRID CSS*/
+#inv-display li {
+  width: 100%; /* Display as a single column on smaller screens */
+  margin-right: 0; /* Remove the right margin */
+}
+
+#inv-display {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#inv-display li img {
+  width: 50%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.namePrice {
+  margin-top: 10px;
+}
+
+.namePrice hr {
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.namePrice h2 {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.namePrice span {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.notice {
+  color: #ff0000;
+  font-size: 1.2em;
+}
+
+#inv-display li {
+  box-sizing: border-box;
+margin: 5px;
+  padding: 5px;
+  border: solid black;
+}
+
+#inv-display li a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+
 /*Medios para dispositivos más grandes (escritorio) ancho de pantalla mayor o igual a 768 píxeles.*/
 @media screen and (min-width: 768px) {
 
@@ -149,7 +229,7 @@ h1 {
   }
 
   nav li {
-    padding: 4rem;
+    padding: 23%;
   }
 
   h1 {
@@ -193,4 +273,44 @@ h1 {
   .content2 {
     order: 2;
   }
+
+  /*CLASSIFICATION CSS*/
+
+
+#inv-display li {
+  box-sizing: border-box;
+  width: calc(33.33% - 10px);
+  margin-right: 2.5px;
+  padding: 10px;
+  border: solid black;
+ margin-bottom: 3%;
+}
+
+
+#inv-display li a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+
+  
+/*Inventory CSS*/
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-side {
+  flex-basis: 50%;
+}
+
+.right-side {
+  flex-basis: 50%;
+  padding-left: 20px; /* Ajusta el espaciado entre las dos partes según tu preferencia */
+  margin-top: 50px;
+}
+.left-side h2 {
+  margin-bottom: 30px; /* Elimina el margen inferior del h2 */
+}
 }

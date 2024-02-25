@@ -12,9 +12,12 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute=require("./routes/inventoryRoute") //NOT KNOW IF IS CORRECT require the inventory route file you just created. Use the variable inventoryRoute to store the required resource.
+const utilities = require("./utilities/");
+
+
 
 /* ***********************
- * View Engine and Templates
+ * View Engine and Templates 
  *************************/
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -27,12 +30,39 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 
 
-//Index route
-app.get("/", baseController.buildHome); //{ //app.get("/", function(req, res) this way was before NOT SURE if the semicolon shouwl be there but otherwise it shows an error
-  //res.render("index", {title: "Home"}) //not sure is this line needs to be here
-//}
+app.get("/", utilities.handleErrors(baseController.buildHome)) 
 // Inventory routes
-app.use("/inv", inventoryRoute)
+
+app.use("/inv",  inventoryRoute)
+
+// Route to trigger an intentional error  //NOT SURE ABOUT THIS
+app.get('/trigger-error', (req, res, next) => {
+  // Throw an error to trigger middleware
+  throw new Error('Intentional Error');
+});
+
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
+
+
+
+/* ***********************
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    nav
+  })
+})
+
 
 /* ***********************
  * Local Server Information
@@ -47,3 +77,5 @@ const host = process.env.HOST
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
+
+
