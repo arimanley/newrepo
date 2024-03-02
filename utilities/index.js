@@ -87,6 +87,46 @@ Util.buildVehicleDetailsHTML = async function(data){
     }
   };
 
+
+  /* **************************************
+ * Build HTML for the login view
+ * ************************************  
+  Util.buildLoginView = async function(){
+    let grid=''
+
+    grid += '<form action="/account/login" method="post">'
+    grid += '<label> Email: </label>'
+    grid += '<input type="email"/>'
+    grid += '<label> Password: </label>'
+    grid += '<input/>'
+    grid += '<button type="submit"> LOGIN </button>'
+    grid += '</form>'
+    grid += '<p>No account? <a href="/account/registration">Sign-up </a></p>'
+ 
+    return grid
+  }
+*/
+/* **************************************
+ * Build HTML for the registration view
+ * ************************************  
+Util.buildRegistrationView = async function(){
+  let grid=''
+
+  grid += '<form action="/account/register-user" method="post">'  
+  grid += '<label> First Name: </label>'
+  grid += '<input type="text" name= "account_firstname" required/>'
+  grid += '<label> Last Name: </label>'
+  grid += '<input type="text" name="account_lastname" required/>'
+  grid += '<label> Email: </label>'
+  grid += '<input type="email" name="account_email" required/>'
+  grid += '<label> Password: </label>'
+  grid += '<input type="password" name=" account_password" required pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{12,}" title="Password must be 12 characters minimum, contain at least 1 capital letter, 1 number, and 1 special character"/>'
+  grid += '<button type="submit"> Register </button>'
+  grid += '</form>'
+ 
+  return grid
+}
+*/
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

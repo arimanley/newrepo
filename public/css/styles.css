@@ -145,13 +145,12 @@ h1 {
 
 /*INVENTORY CSS*/
 .left-side {
-  padding-left: 0; /* Elimina el espaciado izquierdo en dispositivos móviles */
-  margin-top: 5px; /* Ajusta el margen superior según tu preferencia */
+  padding-left: 0; 
+  margin-top: 5px; 
   padding: 10px;
 }
 .right-side {
-  padding-left: 0; /* Elimina el espaciado izquierdo en dispositivos móviles */
-  /* Ajusta el margen superior según tu preferencia */
+  padding-left: 0; 
   padding: 10px;
 }
 
@@ -221,7 +220,54 @@ margin: 5px;
   color: #333;
 }
 
+/*LOGIN FORM*/
+#formContainer {
+  width: 300px;
+  margin: 50px auto;
+}
 
+#form {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  background: #62c3e1;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+/*div {
+  margin-bottom: 16px;
+  color: #888;
+}*/
+
+a:hover {
+  text-decoration: underline;
+  color: #45a049;
+}
 
 /*Medios para dispositivos más grandes (escritorio) ancho de pantalla mayor o igual a 768 píxeles.*/
 @media screen and (min-width: 768px) {
