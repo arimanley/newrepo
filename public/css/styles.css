@@ -269,6 +269,23 @@ a:hover {
   color: #45a049;
 }
 
+
+
+.managementlinks {
+  margin: 20px;
+}
+
+a.managementlinks {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
 /*Medios para dispositivos más grandes (escritorio) ancho de pantalla mayor o igual a 768 píxeles.*/
 @media screen and (min-width: 768px) {
 
