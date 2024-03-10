@@ -1,6 +1,5 @@
 const utilities = require("../utilities")
 const accountModel=require("../models/account-model")
-const baseController = {}
 const bcrypt = require("bcryptjs")
 
 //Function that deliver a login view 
@@ -78,5 +77,6 @@ try {
     })
   }
 }
+
 
   module.exports = { buildLogin, buildRegistration, registerAccount }

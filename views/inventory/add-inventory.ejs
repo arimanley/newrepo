@@ -1,0 +1,63 @@
+<!-- Add inventory View -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+  
+<div id="formContainer"> 
+  <form id="form" action="/inv/inventory-addition" method="post">
+    <fieldset>
+      <div><i>ALL FIELDS ARE REQUIRED</i></div>
+    <label for="classification">Classification</label>
+    <select name="classification_name" id="classification_id" required>
+      <option value="1" <%= locals.classification_name === 'Custom' ? 'selected' : '' %>>Custom</option>
+      <option value="2" <%= locals.classification_name === 'Sport' ? 'selected' : '' %>>Sport</option>
+      <option value="3" <%= locals.classification_name === 'SUV' ? 'selected' : '' %>>SUV</option>
+      <option value="4" <%= locals.classification_name === 'Truck' ? 'selected' : '' %>>Truck</option>
+      <option value="5" <%= locals.classification_name === 'Sedan' ? 'selected' : '' %>>Sedan</option>
+    </select>
+
+    <label for="make">Make</label>
+    <input type="text" name="inv_make" required value="<%= locals.inv_make %>"> 
+
+    <label for="model">Model</label>
+    <input type="text" name="inv_model" required value="<%= locals.inv_model %>"> 
+
+    <label for="description">Description</label>
+    <input type="text" name="inv_description" required value="<%= locals.inv_description %>">  
+
+    <label for="make">Image Path</label>
+    <input type="text" name="inv_image" required value="/images/no-image.jpg" <%= locals.inv_image %>>  
+
+    <label for="make">Thumbnail Path</label>
+    <input type="text" name="inv_thumbnail" required value="/images/no-image-tn.jpg" <%= locals.inv_thumbnail %>>  
+
+    <label for="make">Price</label>
+    <input type="text" name="inv_price" required value="<%= locals.inv_price %>"> 
+
+    <label for="make">Year</label>
+    <input type="number" name="inv_year" required value="<%= locals.inv_year %>">  
+
+    <label for="make">Miles</label>
+    <input type="number" name="inv_miles" required value="<%= locals.inv_miles %>"> 
+
+    <label for="make">Color</label>
+    <input type="text" name="inv_color" required value="<%= locals.inv_color %>">   
+
+    <button type="submit">Add Classification</button>
+  </fieldset>
+</form>
+</div>

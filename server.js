@@ -65,7 +65,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv",  inventoryRoute)
 //ACCOUNT ROUTE 
 app.use("/account",  accountRoute)
-//app.use("/account", require("./routes/accountRoute"))
+
 
 
 
