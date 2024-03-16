@@ -3,7 +3,7 @@ const express = require("express");
 const router = new express.Router();
 const utilities = require("../utilities/index"); //I ADD THESE for the middleware
 const invController = require("../controllers/invController");
-const regValidate = require("../utilities/inventory-validation");
+const validate = require("../utilities/inventory-validation");
 
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
@@ -13,6 +13,11 @@ router.get("/detail/:invId", invController.buildByInvId); //WEEK 7
 //Route for Management View
 router.get("/", utilities.handleErrors(invController.buildManagement));
 
+
+
+
+
+
 //Route for Add Classification View
 router.get(
   "/add-classification",
@@ -21,10 +26,11 @@ router.get(
 // Process data
 router.post(
   "/classification-addition",
-  //regValidate.AddingClassRules(),
-  //regValidate.checkReggData,
+  validate.AddingClassRules(),
+  validate.checkClassificationData,
   utilities.handleErrors(invController.addClassificationItem)
 );
+
 
 //Route for Add Inventory View
 router.get(
@@ -33,9 +39,13 @@ router.get(
 );
 router.post(
   "/inventory-addition",
-  //regValidate.AddingInvRules(),
-  //regValidate.checkRegData,
+  validate.AddingInvRules(),
+  validate.checkInventoryData,
   utilities.handleErrors(invController.addInventoryItem)
 );
 
+
+
+
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 module.exports = router;

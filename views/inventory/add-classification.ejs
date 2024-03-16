@@ -19,10 +19,14 @@
 
 <div id="formContainer"> 
     <form id="form" action="/inv/classification-addition" method="post">
+
       <fieldset>
         <div><i>Classification name cannot contain a space or special character of any kind.</i></div>
+
       <label for="classificationName">Classification Name</label>
-      <input type="text" name="classification_name"  required value="<%= locals.classification_name %>"> 
+
+      <input type="text" name="classification_name"  required  value="<%= locals.classification_name %>"> 
+
       <button type="submit">Add Classification</button>
     </fieldset>
   </form>

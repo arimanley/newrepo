@@ -30,9 +30,47 @@ Util.getNav = async function (req, res, next) {
 }
 
 /* ************************
- * Constructs the dropdown of the form (NOT WORKING with the .getDrop, just with .getNav but that affect my navigation bar)
+ * Constructs the dropdown of the form 
  ************************** */
 Util.getDrop = async function (req, res, next) {
+  let data = await invModel.getClassifications();
+  let dropdown = '<select id="classificationList">';
+
+ data.rows.forEach((row) => {
+   dropdown +=
+      '<option value="' +
+      row.classification_id +
+      '" title="See our inventory of ' +
+      row.classification_name +
+      ' vehicles">' +
+     row.classification_name +
+      '</option>';
+  });
+
+ dropdown += '</select>';
+  return dropdown;
+}
+
+Util.buildClassificationList = async function (classification_id = null) {
+  let data = await invModel.getClassifications()
+  let classificationList =
+    '<select name="classification_id" id="classificationList" required>'
+  classificationList += "<option value=''>Choose a Classification</option>"
+  data.rows.forEach((row) => {
+    classificationList += '<option value="' + row.classification_id + '"'
+    if (
+      classification_id != null &&
+      row.classification_id == classification_id
+    ) {
+      classificationList += " selected "
+    }
+    classificationList += ">" + row.classification_name + "</option>"
+  })
+  classificationList += "</select>"
+  return classificationList
+}
+/*
+Util.buildClassificationList = async function (req, res, next) {
   let data = await invModel.getClassifications();
   let dropdown = '<select id="navigationDropdown">';
   dropdown += '<option value="/" title="Home page">Home</option>';
@@ -50,7 +88,8 @@ Util.getDrop = async function (req, res, next) {
 
  dropdown += '</select>';
   return dropdown;
-}
+}*/
+
 /* **************************************
 * Build the classification view HTML
 * ************************************ */
@@ -112,8 +151,6 @@ Util.buildVehicleDetailsHTML = async function(data){
       return `<p> Sorry </p>`;
     }
   };
-
-
 
 
  
