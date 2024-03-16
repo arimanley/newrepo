@@ -17,6 +17,7 @@ const utilities = require("./utilities/");
 const session = require("express-session") //Require the Session package and DB connection
 const pool = require('./database/')//Require the Session package and DB connection
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware            express-session
@@ -39,6 +40,10 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+//for the cookieParser
+app.use(cookieParser())
+//
+app.use(utilities.checkJWTToken)
 
 
 //will make the body-parser available to the application:

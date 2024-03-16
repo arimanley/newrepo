@@ -16,19 +16,13 @@
  </ul>
 <% } %>
 
-  
+
 <div id="formContainer"> 
   <form id="form" action="/inv/inventory-addition" method="post">
     <fieldset>
       <div><i>ALL FIELDS ARE REQUIRED</i></div>
     <label for="classification">Classification</label>
-    <select name="classification_name" id="classification_id" required>
-      <option value="1" <%= locals.classification_name === 'Custom' ? 'selected' : '' %>>Custom</option>
-      <option value="2" <%= locals.classification_name === 'Sport' ? 'selected' : '' %>>Sport</option>
-      <option value="3" <%= locals.classification_name === 'SUV' ? 'selected' : '' %>>SUV</option>
-      <option value="4" <%= locals.classification_name === 'Truck' ? 'selected' : '' %>>Truck</option>
-      <option value="5" <%= locals.classification_name === 'Sedan' ? 'selected' : '' %>>Sedan</option>
-    </select>
+    <%-dropdown%>
 
     <label for="make">Make</label>
     <input type="text" name="inv_make" required value="<%= locals.inv_make %>"> 
