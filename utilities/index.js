@@ -31,7 +31,7 @@ Util.getNav = async function (req, res, next) {
 
 /* ************************
  * Constructs the dropdown of the form 
- ************************** */
+ ************************** 
 Util.getDrop = async function (req, res, next) {
   let data = await invModel.getClassifications();
   let dropdown = '<select id="classificationList">';
@@ -49,7 +49,7 @@ Util.getDrop = async function (req, res, next) {
 
  dropdown += '</select>';
   return dropdown;
-}
+}*/
 
 Util.buildClassificationList = async function (classification_id = null) {
   let data = await invModel.getClassifications()

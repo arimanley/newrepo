@@ -1,0 +1,50 @@
+<!-- Add inventory View -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+
+<div id="formContainer"> 
+  <form id="updateForm" action="/inv/deleting" method="post">
+
+    <fieldset>
+      <div><i>ALL FIELDS ARE REQUIRED</i></div>
+
+    <label for="classificationList">Classification</label>
+    <%-classificationList%>
+
+    <label for="invMake">Make</label>
+    <input type="text" name="inv_make" id="invMake" required minlength="3" placeholder="Min of 3 characters" <%if(locals.inv_make) { %> value="<%= locals.inv_make %>" <%} %>readonly>
+
+    <label for="invModel">Model</label>
+    <input type="text" name="inv_model" id="invModel" required minlength="3" placeholder="Min of 3 characters" <%if(locals.inv_model) { %> value="<%= locals.inv_model %>" <%} %>readonly>
+
+    <label for="invPrice">Price</label>
+    <input type="number" name="inv_price" id="invPrice"  size="10" placeholder="decimal or integer numbers only " required pattern="^[1-9]\d*(\.\d+)?$" <% if (locals.inv_price) { %> value="<%= locals.inv_price %>" <% } %>readonly> 
+
+    <label for="invYear">Year</label>
+    <input type="number" name="inv_year" id="invYear" size="10" placeholder="4-digit year" required minlength="4" maxlength="4" pattern="^(19|20)\d{2}$" <% if (locals.inv_year) { %> value="<%= locals.inv_year %>" <% } %>readonly> 
+    
+    <p>Confirm Deletion - The delete is permanent.</p>
+    <button type="submit" >Delete</button>
+
+    <input type="hidden" name="inv_id"
+<% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+<% } %>>
+    
+  </fieldset>
+</form>
+</div>
