@@ -1,0 +1,35 @@
+<!-- Update Account View -->
+<% if (title) { %>
+    <h1><%= "Update Account View" %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+
+<%- messages() %>
+
+
+
+<div id="formContainer"> 
+  <form id="form" action="/account/update" method="post" >
+    <label for="firstname">First Name:</label>
+    <input type="text" name="account_firstname" id="firstname" required value="<%= locals.account_firstname %>">
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="account_lastname" id="lastname" required value="<%= locals.account_lastname %>">
+    <label for="email">Email:</label>
+    <input type="email" name="account_email" id="email" required value="<%= locals.account_email %>">
+    <input type="hidden" name="account_id">
+    <button type="submit">Update Account</button>
+  </form>
+</div>
+
+<div id="formContainer1"> 
+  <div><i>Password must be minimum of 12 characters and include 1 capital letter, 1 number, and 1 special character.</i></div>
+  <form action="/change_password" method="post">
+    <label for="new_password">New Password:</label>
+    <input type="password" name="new_password" id="new_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+    <div><i>Entering a new password will change the current password</i></div>
+    <input type="hidden" name="account_id">
+    <button type="submit">Change Password</button>
+  </form>
+</div>

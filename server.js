@@ -19,6 +19,8 @@ const pool = require('./database/')//Require the Session package and DB connecti
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 
+
+
 /* ***********************
  * Middleware            express-session
  * ************************/ 

@@ -154,11 +154,6 @@ h1 {
   padding: 10px;
 }
 
-img {
- /* width: 45%;  La imagen ocupará el ancho completo del contenedor */
- /*  height: auto; Se ajustará automáticamente según el ancho */
-
-}
 
 /*CLASSIFICATION GRID CSS*/
 #inv-display li {
@@ -204,7 +199,7 @@ img {
 }
 
 .notice {
-  color: #ff0000;
+  color: blue;
   font-size: 1.2em;
 }
 
@@ -226,6 +221,11 @@ margin: 5px;
   margin: 50px auto;
 }
 
+/*LOGIN FORM*/
+#formContainer1 {
+  width: 300px;
+  margin: 50px auto;
+}
 #form {
   background: #f4f4f4;
   padding: 20px;
@@ -251,7 +251,7 @@ input {
 
 button {
   background: #62c3e1;
-  color: #fff;
+  color: black;
   padding: 10px 15px;
   border: none;
   border-radius: 3px;

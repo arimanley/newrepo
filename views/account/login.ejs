@@ -10,7 +10,6 @@
 
 <div id="formContainer"> 
   <form id="form" action="/account/login" method="post">
-    <fieldset>
     <label for="email">Email:</label>
     <input type="email" name="account_email" id="email" required value="<%=locals.account_email%>">
 
@@ -20,7 +19,6 @@
     <div><i>Password mut be minimum of 12 characters and include 1 capitel letter, 1 number and 1 special character.</i></div>
 
     <button type="submit">Login</button>
-  </fieldset>
 <p>No account? <a href="/account/registration">Sign-up </a></p>
 </form>
 </div>

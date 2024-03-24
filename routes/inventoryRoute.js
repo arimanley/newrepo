@@ -13,8 +13,6 @@ router.get("/detail/:invId", invController.buildByInvId); //WEEK 7
 //Route for Management View
 router.get("/", utilities.handleErrors(invController.buildManagement));
 
-
-
 //Route for Add Classification View
 router.get(
   "/add-classification",
@@ -28,7 +26,6 @@ router.post(
   utilities.handleErrors(invController.addClassificationItem)
 );
 
-
 //Route for Add Inventory View
 router.get(
   "/add-inventory",
@@ -41,26 +38,34 @@ router.post(
   utilities.handleErrors(invController.addInventoryItem)
 );
 
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+);
 
-
-
-router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
-
-// Route for editing inventory item(modify link)
-router.get('/edit/:inv_id', utilities.handleErrors(invController.editInventoryView))
-
+// Route for updating inventory item(modify link)
+router.get(
+  "/edit/:inv_id",
+  utilities.handleErrors(invController.editInventoryView)
+);
 // Route for updta view from the form
-router.post("/update/", 
-//validate.AddingInvRules(),
-validate.checkUpdateData,
-utilities.handleErrors(invController.updateInventory))
-
+router.post(
+  "/update/",
+  //validate.AddingInvRules(),
+  validate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+);
 
 // Route for deleting inventory item(delete link)
-router.get('/delete/:inv_id', utilities.handleErrors(invController.deleteInventoryView))
+router.get(
+  "/delete/:inv_id",
+  utilities.handleErrors(invController.deleteInventoryView)
+);
 // Route for handle the delete view from the form
-router.post("/deleting/", 
-//validate.AddingInvRules(),
-//validate.checkUpdateData,
-utilities.handleErrors(invController.deleteInventory))
+router.post(
+  "/deleting/",
+  //validate.AddingInvRules(),
+  //validate.checkUpdateData,
+  utilities.handleErrors(invController.deleteInventory)
+);
 module.exports = router;
