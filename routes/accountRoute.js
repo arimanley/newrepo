@@ -7,15 +7,13 @@ const regValidate = require("../utilities/account-validation");
 
 //Quedamos en  Add a "GET" route for the path that will be sent when the "My Account" link is clicked.
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
+
 // Process the login attempt
 router.post(
   "/login",
   regValidate.loginRules(),
   regValidate.checkLoginData,
   utilities.handleErrors(accountController.accountLogin)
-  // (req, res) => {
-  // res.status(200).send('login process')
-  //}
 );
 
 //add a new route a registration route
@@ -43,14 +41,22 @@ router.get(
   "/updateview",
   utilities.handleErrors(accountController.buildUpdateAccount)
 );
-// Route for upddate view from the form
+
+// Route for update view from the form
 router.post(
-  "/update/",
-  //validate.updateRules(),
-//validate.checkUpdateData,
+  "/update",
+  regValidate.updateRules(),
+regValidate.checkUpdateData,
   utilities.handleErrors(accountController.updateAccount)
 );
 
+//Updating password
+router.post(
+  "/update/password",
+  regValidate.passwordRules(),
+  regValidate.checkPasswordUpdate,
+  utilities.handleErrors(accountController.updatePassword)
+)
 
 
 module.exports = router;
